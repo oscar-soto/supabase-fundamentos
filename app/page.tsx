@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import { useState } from "react";
-import { getTimeAgo } from "./utils/time";
-import { posts as initialPosts, type Post } from "./mocks/posts";
+import Image from 'next/image';
+import { useState } from 'react';
+import { getTimeAgo } from './utils/time';
+import { posts as initialPosts, type Post } from './mocks/posts';
 
 function HeartIcon({ filled }: { filled: boolean }) {
   if (filled) {
@@ -36,7 +36,13 @@ function HeartIcon({ filled }: { filled: boolean }) {
   );
 }
 
-function PostCard({ post, onLike }: { post: Post; onLike: (id: number | string) => void }) {
+function PostCard({
+  post,
+  onLike,
+}: {
+  post: Post;
+  onLike: (id: number | string) => void;
+}) {
   return (
     <article className="bg-card-bg border border-border rounded-xl overflow-hidden shadow-sm">
       {/* Header con usuario y avatar */}
@@ -50,8 +56,12 @@ function PostCard({ post, onLike }: { post: Post; onLike: (id: number | string) 
           />
         </div>
         <div className="flex flex-col">
-          <span className="font-semibold text-foreground">{post.user.username}</span>
-          <span className="text-xs text-foreground/50">{getTimeAgo(post.created_at)}</span>
+          <span className="font-semibold text-foreground">
+            {post.user.username}
+          </span>
+          <span className="text-xs text-foreground/50">
+            {getTimeAgo(post.created_at)}
+          </span>
         </div>
       </div>
 
@@ -72,7 +82,7 @@ function PostCard({ post, onLike }: { post: Post; onLike: (id: number | string) 
           <button
             onClick={() => onLike(post.id)}
             className="hover:scale-110 transition-transform active:scale-95"
-            aria-label={post.isLiked ? "Quitar like" : "Dar like"}
+            aria-label={post.isLiked ? 'Quitar like' : 'Dar like'}
           >
             <HeartIcon filled={post.isLiked} />
           </button>
@@ -83,7 +93,7 @@ function PostCard({ post, onLike }: { post: Post; onLike: (id: number | string) 
 
         {/* Caption */}
         <p className="mt-2 text-foreground">
-          <span className="font-semibold">{post.user.username}</span>{" "}
+          <span className="font-semibold">{post.user.username}</span>{' '}
           <span className="text-foreground/80">{post.caption}</span>
         </p>
       </div>
