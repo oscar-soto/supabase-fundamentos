@@ -1,9 +1,11 @@
 'use client';
 
 import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { getTimeAgo } from './utils/time';
 import { posts as initialPosts, type Post } from './mocks/posts';
+
+import { supabase } from './utils/client';
 
 function HeartIcon({ filled }: { filled: boolean }) {
   if (filled) {
